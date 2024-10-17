@@ -82,29 +82,16 @@ body, html {
   position: absolute;
   font-size: 1.2rem;
   padding: 5px 10px;
-  background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+  background-color: rgba(255, 255, 255, 0.7);
   border-radius: 10px;
   text-align: center;
   font-weight: bold;
   cursor: pointer;
+  transition: box-shadow 0.3s ease; /* Add smooth transition for glow */
 }
 
-.experience-label {
-  /* Extra styling for the experience door if needed */
+.door-label.glow {
+  box-shadow: 0 0 15px 5px rgba(255, 215, 0, 0.8); /* Gold-like glow */
 }
 
-.projects-label {
-  /* Extra styling for the projects door if needed */
-}
 
-.education-label {
-  /* Extra styling for the education door if needed */
-}
-
-.volunteer-label {
-  /* Extra styling for the volunteer door if needed */
-}
-
-.hobbies-label {
-  /* Extra styling for the hobbies door if needed */
-}

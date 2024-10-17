@@ -1,19 +1,14 @@
-// src/components/Map.js
 import React from 'react';
-import '../styles/Map.css';
 import Character from './Character';
 import Section from './Section';
 
 const Map = () => {
   return (
     <div className="map">
-      {/* Character on the map */}
       <Character />
-
-      {/* Different sections */}
-      <Section name="Experience" position={{ top: '100px', left: '200px' }} />
-      <Section name="Projects" position={{ top: '300px', left: '400px' }} />
-      <Section name="Education" position={{ top: '500px', left: '100px' }} />
+      <Section name="Experience" position={{ top: '35%', left: '15%' }} />
+      <Section name="Projects" position={{ top: '35%', left: '45%' }} />
+      <Section name="Education" position={{ top: '35%', left: '75%' }} />
     </div>
   );
 };

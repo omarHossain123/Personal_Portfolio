@@ -1,9 +1,0 @@
-/* src/styles/Map.css */
-.map {
-  position: relative; /* This allows child elements (like the character) to be positioned absolutely */
-  width: 100vw; /* Full viewport width */
-  height: 100vh; /* Full viewport height */
-  background: url('../assets/images/map-background.jpg') no-repeat center center; /* Center background image */
-  background-size: cover; /* Make the background cover the entire map */
-  overflow: hidden; /* Prevent the character from moving outside the map */
-}

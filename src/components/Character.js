@@ -1,25 +1,27 @@
-// src/components/Character.js
 import React, { useState, useEffect } from 'react';
-import '../styles/Character.css'; // Ensure correct path
-import characterImg from '../assets/images/character.jpg'; // Import the image
+import characterImg from '../assets/images/character.png'; 
 
 const Character = () => {
-  const [position, setPosition] = useState({ x: 50, y: 50 });
+  const [position, setPosition] = useState({ x: 50, y: 80 });
 
   const handleKeyPress = (e) => {
-    const step = 10;
+    const step = 2; // Step size in percentage
     let newX = position.x;
     let newY = position.y;
 
-    // Get the dimensions of the viewport
-    const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
+    // Prevent moving outside the window bounds (accounting for the 200px character size)
+    const mapWidth = 100;  // 100% width
+    const mapHeight = 100; // 100% height
 
-    // Adjust position based on arrow keys, but prevent the character from going outside the viewport
+    // Calculate the percentage width of the character relative to viewport
+    const characterWidthPercentage = (200 / window.innerWidth) * 100; // For width in percentage
+    const characterHeightPercentage = (200 / window.innerHeight) * 100; // For height in percentage
+
+    // Adjust position based on arrow keys while preventing overflow outside the map
     if (e.key === 'ArrowUp' && position.y > 0) newY -= step;
-    if (e.key === 'ArrowDown' && position.y < viewportHeight - 50) newY += step; // Character height is 50px
+    if (e.key === 'ArrowDown' && position.y < mapHeight - characterHeightPercentage) newY += step;
     if (e.key === 'ArrowLeft' && position.x > 0) newX -= step;
-    if (e.key === 'ArrowRight' && position.x < viewportWidth - 50) newX += step; // Character width is 50px
+    if (e.key === 'ArrowRight' && position.x < mapWidth - characterWidthPercentage) newX += step;
 
     setPosition({ x: newX, y: newY });
   };
@@ -35,17 +37,13 @@ const Character = () => {
     <div
       className="character"
       style={{
-        top: `${position.y}px`,
-        left: `${position.x}px`,
+        top: `${position.y}%`,
+        left: `${position.x}%`,
       }}
     >
       <img src={characterImg} alt="Character" />
-      </div>
+    </div>
   );
 };
 
 export default Character;
-
-
-
-

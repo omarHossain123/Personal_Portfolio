@@ -94,4 +94,64 @@ body, html {
   box-shadow: 0 0 15px 5px rgba(255, 215, 0, 0.8); /* Gold-like glow */
 }
 
+/* Character speech bubble styling */
+.speech-bubble {
+  position: absolute;
+  top: -170px; /* A bit more space above the character */
+  left: -10%;
+  transform: translateX(-50%);
+  width: 280px; /* Increased width */
+  padding: 15px; /* More padding for breathing room */
+  background-color: rgba(255, 255, 255, 0.9); /* Softer white with transparency */
+  border-radius: 15px; /* Larger rounded corners */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow for depth */
+  font-size: 16px; /* Slightly bigger font for better readability */
+  font-family: 'Arial', sans-serif; /* Use a clean, modern font */
+  line-height: 1.6; /* Spacing between lines */
+  z-index: 20; /* Keep above other elements */
+  opacity: 0;
+  animation: fadeIn 0.5s forwards; /* Smooth fade-in effect */
+}
+
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 10px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.9) transparent transparent transparent; /* Transparent arrow for bubble */
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  font-weight: bold;
+  font-size: 18px;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+}
+
+.close-btn:hover {
+  color: #ff4d4d; /* Change color on hover */
+  transform: scale(1.2); /* Slight scale effect */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px); /* Slide in from slightly below */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* End with normal position */
+  }
+}
+
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import characterImg from '../assets/images/character.png'; 
 
 const Character = () => {
-  const [position, setPosition] = useState({ x: 50, y: 80 });
+  const [position, setPosition] = useState({ x: 43, y: 68 });
 
   const handleKeyPress = (e) => {
     const step = 2; // Step size in percentage

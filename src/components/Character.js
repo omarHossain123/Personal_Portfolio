@@ -29,26 +29,27 @@ const Character = ({ onNearDoor }) => {
   }, [position]);
 
   const checkProximity = useCallback(() => {
-    // Define door positions
+    // Define door positions and ranges
     const doors = {
-      experience: { x: 25, y: 30 },
-      contact: { x: 47.5, y: 30 },
-      projects: { x: 65, y: 30 },
-      education: { x: 75, y: 30 },
-      volunteer: { x: 11, y: 30 },
+      experience: { x: [25, 35], y: [25, 55] },
+      contact: { x: [35, 52.5], y: [25, 55] },
+      projects: { x: [53, 60], y: [25, 50] },
+      education: { x: [63, 80], y: [25, 60] },
+      volunteer: { x: [10, 25], y: [25, 55] },
     };
 
-    // Check proximity to each door
+    // Check if character is within range of any door
     for (const [door, { x, y }] of Object.entries(doors)) {
-      const isNear = Math.abs(position.x - x) < 5 && Math.abs(position.y - y) < 5;
-      if (isNear) {
-        setNearDoor(door); // Set the current door the character is near
-        onNearDoor(door); // Call parent function to update glowing door
+      const isNearX = position.x >= x[0] && position.x <= x[1];
+      const isNearY = position.y >= y[0] && position.y <= y[1];
+      if (isNearX && isNearY) {
+        setNearDoor(door);
+        onNearDoor(door);
         return;
       }
     }
-    setNearDoor(null); // No door nearby
-    onNearDoor(null); // Clear glowing door
+    setNearDoor(null);
+    onNearDoor(null);
   }, [position, onNearDoor]);
 
   useEffect(() => {

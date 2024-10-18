@@ -74,15 +74,20 @@ const Character = ({ onNearDoor }) => {
         };
         
         const sectionName = sectionNames[nearDoor];
-        alert(`You entered the ${sectionName} section!`);
+  
+        if (nearDoor === 'projects') {
+          window.location.href = '/projects'; // Navigate to the Projects page
+        } else {
+          alert(`You entered the ${sectionName} section!`);
+        }
       }
     };
-
+  
     window.addEventListener('keydown', handleEnterPress);
     return () => {
       window.removeEventListener('keydown', handleEnterPress);
     };
-  }, [nearDoor]);
+  }, [nearDoor]);  
 
   return (
     <div

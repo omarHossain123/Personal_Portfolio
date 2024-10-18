@@ -154,5 +154,23 @@ body, html {
   }
 }
 
+.projects-page {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
 
+.projects-page h1 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.projects-page ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.projects-page li {
+  padding: 10px 0;
+  font-size: 1.2rem;
+}
 

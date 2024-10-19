@@ -82,16 +82,25 @@ body, html {
   position: absolute;
   font-size: 1.2rem;
   padding: 5px 10px;
-  background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.6); /* Dark semi-transparent background to blend in */
+  color: #f7e600; /* Change text color to gold-like hue */
+  border-radius: 15px;
   text-align: center;
   font-weight: bold;
   cursor: pointer;
-  transition: box-shadow 0.3s ease; /* Add smooth transition for glow */
+  font-family: 'Georgia', serif; /* Use a more classical font to match the theme */
+  transition: box-shadow 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.8); /* Soft glow around the labels */
 }
 
 .door-label.glow {
   box-shadow: 0 0 15px 5px rgba(255, 215, 0, 0.8); /* Gold-like glow */
+  transform: scale(1.05); /* Slight scale-up on hover for a dynamic feel */
+}
+
+.door-label:hover {
+  transform: scale(1.05); /* Slight scale-up on hover for a dynamic feel */
+  box-shadow: 0 0 20px rgba(255, 215, 0, 1); /* Brighten the glow on hover */
 }
 
 /* Character speech bubble styling */

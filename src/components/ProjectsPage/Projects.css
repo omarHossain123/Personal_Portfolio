@@ -1,7 +1,7 @@
 .projects-page {
   min-height: 100vh;
   padding: 20px;
-  background-image: url('../../assets/images/project.png'); /* Update this path if necessary */
+  background-image: url('../../assets/images/project.png'); /* Adjust the image path */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -10,16 +10,12 @@
   justify-content: center;
 }
 
-.projects-page h1 {
-  margin-bottom: 20px;
-}
-
 .project-list {
   width: 100%;
-  max-width: 800px; /* Adjust this value as needed */
+  max-width: 1000px; /* Adjust width for responsive design */
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 }
 
 .project-item {
@@ -27,13 +23,18 @@
   justify-content: space-between;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.7);
-  padding: 15px;
-  border-radius: 8px;
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.project-item:hover {
+  transform: translateY(-10px);
 }
 
 .project-info h2 {
   margin: 0;
-  font-size: 1.2em;
+  font-size: 1.5em;
   color: white;
 }
 
@@ -43,6 +44,154 @@
 }
 
 .project-date {
-  font-size: 0.9em;
+  font-size: 1em;
   color: #aaa;
 }
+
+.character-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  z-index: 10; /* Ensure character is above other content */
+}
+
+.character-image {
+  width: 150px; /* Adjust size as needed */
+  height: auto;
+}
+
+.speech-bubble {
+  position: relative;
+  background: #fff;
+  padding: 10px 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  margin-left: 20px;
+  max-width: 250px;
+}
+
+.speech-bubble:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-right-color: #fff;
+  border-left: 0;
+  border-bottom: 0;
+  margin-top: -5px;
+}
+
+.speech-bubble p {
+  margin: 0;
+  font-size: 1em;
+  color: #333;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-weight: bold;
+  font-size: 18px;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+}
+
+.close-button:hover {
+  background: #ff0000;
+}
+
+.project-list {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.project-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.project-item:hover {
+  transform: translateY(-10px);
+}
+
+.project-info h2 {
+  margin: 0;
+  font-size: 1.5em;
+  color: white;
+}
+
+.project-info p {
+  margin: 5px 0 0;
+  color: #aaa;
+}
+
+.project-date {
+  font-size: 1em;
+  color: #aaa;
+}
+
+.home-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent; /* Keep the background transparent */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  z-index: 100;
+  transition: box-shadow 0.3s ease; /* Remove scaling to prevent icon movement */
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Keeps everything in place */
+}
+
+.home-icon {
+  color: #f7e600; /* Icon color */
+  font-size: 1.5em; /* Adjust size */
+  z-index: 1; /* Ensure the icon stays above the glow */
+}
+
+.home-label {
+  display: none; /* Initially hidden */
+  color: #f7e600; /* Same color as the icon */
+  margin-left: 120px; /* Adjust this value to move the text horizontally */
+  font-size: 1.5em;
+  position: absolute; /* Set position to absolute for fine-tuning */
+  top: 50%; /* Vertically center the text */
+  transform: translateY(-50%); /* Adjust based on the height of the text */
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+
+.home-button:hover {
+  box-shadow: 0px 0px 15px 5px rgba(247, 230, 0, 0.8); /* Glowing effect */
+}
+
+.home-button:hover .home-label {
+  display: block; /* Show label on hover */
+}
+
